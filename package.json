@@ -39,7 +39,7 @@
     "datatables.net-bs5": "^1.11.3",
     "dattatable": "^1.2.8",
     "frappe-gantt": "^0.5.0",
-    "gd-sprest-bs": "^8.6.7",
+    "gd-sprest-bs": "^8.6.8",
     "jquery": "^3.6.0",
     "moment": "^2.29.1"
   }

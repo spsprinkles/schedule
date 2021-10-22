@@ -9,7 +9,7 @@ specifiers:
   datatables.net-bs5: ^1.11.3
   dattatable: ^1.2.8
   frappe-gantt: ^0.5.0
-  gd-sprest-bs: ^8.6.7
+  gd-sprest-bs: ^8.6.8
   html-loader: ^3.0.0
   jquery: ^3.6.0
   moment: ^2.29.1
@@ -25,9 +25,9 @@ specifiers:
 dependencies:
   datatables.net: 1.11.3
   datatables.net-bs5: 1.11.3
-  dattatable: 1.2.8_c297fd1d905861b07241f56f3c2cefa5
+  dattatable: 1.2.8_ffd589773abe9da9d36cf3493e7aace7
   frappe-gantt: 0.5.0
-  gd-sprest-bs: 8.6.7
+  gd-sprest-bs: 8.6.8
   jquery: 3.6.0
   moment: 2.29.1
 
@@ -1801,7 +1801,7 @@ packages:
       jquery: 3.6.0
     dev: false
 
-  /dattatable/1.2.8_c297fd1d905861b07241f56f3c2cefa5:
+  /dattatable/1.2.8_ffd589773abe9da9d36cf3493e7aace7:
     resolution: {integrity: sha512-xXDWpaVApT+BZEJ2xn/4L7rFxc5f/G/PoC6q4wiIrm3T3sSYTRyJzFwbc2eZaN6e5MEgn1USTqVX+lssExtuug==}
     peerDependencies:
       datatables.net: '*'
@@ -1812,7 +1812,7 @@ packages:
     dependencies:
       datatables.net: 1.11.3
       datatables.net-bs5: 1.11.3
-      gd-sprest-bs: 8.6.7
+      gd-sprest-bs: 8.6.8
       jquery: 3.6.0
       moment: 2.29.1
     dev: false
@@ -2082,8 +2082,8 @@ packages:
       globule: 1.3.3
     dev: true
 
-  /gd-bs/5.1.5:
-    resolution: {integrity: sha512-NnGuFV5oI5GhYzKh9AK/uqpWPrns+MvF3/JW2W92kf/HAqPMxTwfKqE/0WbSP/h1eXRZvE8x8RtHTiEubTFH4Q==}
+  /gd-bs/5.1.6:
+    resolution: {integrity: sha512-dffB/APkZy7MRxvMsvBgY0+9jXfp2aRSbbsfdZh+m9OlUjrnuikf574aTZPJzcQJbTJE4bLHislw0edxxKVKYQ==}
     dependencies:
       bootstrap: 5.1.3
       bootstrap-icons: 1.6.1
@@ -2093,11 +2093,11 @@ packages:
       - '@popperjs/core'
     dev: false
 
-  /gd-sprest-bs/8.6.7:
-    resolution: {integrity: sha512-FXZ6uiF+dalTCYStx103vpkkzFTItURdLyDp66xZBiYpQBGuK2ob+k6l8CYmVvR0c9LyNkISWJqBPx95UY7jyw==}
+  /gd-sprest-bs/8.6.8:
+    resolution: {integrity: sha512-32Ik/L43A0x9D78fKR+CRSju2K7xo+i0SnJSsim+rr2VqOELGnHrdVl65257uCDg1nsAgAixrfxIY7fvj8lRjA==}
     dependencies:
       flatpickr: 4.6.9
-      gd-bs: 5.1.5
+      gd-bs: 5.1.6
       gd-sprest: 6.6.9
       gd-sprest-def: 1.0.7
     transitivePeerDependencies:

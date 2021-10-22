@@ -56,7 +56,7 @@ export class GanttChart {
                 title: "This is a Popover",
                 placement: Components.PopoverPlacements.Top,
                 options: {
-                    appendTo: this._el as any,
+                    appendTo: this._el,
                     content: "This is the content for: " + item.Title,
                     trigger: "focus"
                 }
