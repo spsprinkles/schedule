@@ -56,7 +56,7 @@ export class GanttChart {
                 title: "This is a Popover",
                 placement: Components.PopoverPlacements.Top,
                 options: {
-                    appendTo: document.body as any,
+                    appendTo: this._el as any,
                     content: "This is the content for: " + item.Title,
                     trigger: "focus"
                 }
@@ -104,7 +104,6 @@ export class GanttChart {
                     this._items.push({
                         id: "Event_" + item.Id,
                         item,
-                        dependencies: [],
                         progress: 0, // A value is required
                         name: item.Title,
                         start: new Date(startDate),
@@ -130,6 +129,9 @@ export class GanttChart {
 
             // Refresh the chart
             this._items.length > 0 ? this._chart.refresh(this._items) : null;
+
+            // Create the popup
+            this.createPopups();
         } else {
             // Render the gantt chart
             this.render();
@@ -143,7 +145,11 @@ export class GanttChart {
             // Create the gantt chart
             this._chart = new Gantt(this._el, this._items, {
                 popup_trigger: "",
-                view_mode: "Week"
+                view_mode: "Week",
+                on_click: () => {
+                    // Make sure the popup is hidden
+                    this._chart.hide_popup();
+                }
             });
 
             // Resize the element
