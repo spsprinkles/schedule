@@ -1,5 +1,6 @@
+import { Components } from "gd-sprest-bs";
 import Gantt from "frappe-gantt";
-import { DataSource } from "./ds";
+import { DataSource, IItem } from "./ds";
 
 /**
  * Gantt Chart
@@ -42,6 +43,27 @@ export class GanttChart {
         });
     }
 
+    // Creates the custom popup for the bars
+    private createPopups() {
+        // Parse the bars
+        for (let i = 0; i < this._chart.bars.length; i++) {
+            let bar = this._chart.bars[i];
+            let item: IItem = bar.task.item;
+
+            // Create a popup
+            Components.Popover({
+                target: bar.group,
+                title: "This is a Popover",
+                placement: Components.PopoverPlacements.Top,
+                options: {
+                    appendTo: document.body as any,
+                    content: "This is the content for: " + item.Title,
+                    trigger: "focus"
+                }
+            });
+        }
+    }
+
     // Filters the gantt chart
     filter(value: string) {
         // Set the filter
@@ -82,6 +104,7 @@ export class GanttChart {
                     this._items.push({
                         id: "Event_" + item.Id,
                         item,
+                        dependencies: [],
                         progress: 0, // A value is required
                         name: item.Title,
                         start: new Date(startDate),
@@ -119,11 +142,15 @@ export class GanttChart {
         if (this._items.length > 0) {
             // Create the gantt chart
             this._chart = new Gantt(this._el, this._items, {
+                popup_trigger: "",
                 view_mode: "Week"
             });
 
             // Resize the element
             this._el.dispatchEvent(new Event("resize"));
+
+            // Create the popup
+            this.createPopups();
         }
     }
 
