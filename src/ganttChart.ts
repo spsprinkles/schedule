@@ -1,6 +1,4 @@
-import * as moment from "moment";
 import Gantt from "frappe-gantt";
-import { formatDateValue } from "./common";
 import { DataSource } from "./ds";
 
 /**
@@ -10,8 +8,6 @@ export class GanttChart {
     private _el: HTMLElement = null;
     private _filter: string = null;
     private _items: Array<any> = null;
-    private _options: any = null;
-    private _view: DataView = null;
 
     // Gantt Chart
     private _chart = null;
@@ -25,10 +21,7 @@ export class GanttChart {
         // Load the rows and events
         this.loadEvents();
 
-        // Render the timeline
-        this.render();
-
-        // Hide the timeline by default
+        // Hide the gantt chart by default
         this.hide();
     }
 
@@ -36,43 +29,29 @@ export class GanttChart {
     private createElement(el: HTMLElement) {
         // Create the element
         this._el = document.createElement("div");
-        this._el.id = "timeline";
+        this._el.id = "ganttChart";
         el.appendChild(this._el);
 
         // Add a change event
         this._el.addEventListener("resize", () => {
             // See if we are off the screen
             let elPos = this._el.getBoundingClientRect();
-            if (elPos.width - elPos.left > window.innerWidth) {
-                // Set the width
-                this._el.style.width = (window.innerWidth - elPos.left - 50) + "px";
-            }
+
+            // Set the width
+            this._el.style.width = (window.innerWidth - elPos.left - 50) + "px";
         });
     }
 
-    // Filters the timeline
+    // Filters the gantt chart
     filter(value: string) {
         // Set the filter
         this._filter = value;
 
-        // Refresh the timeline
-        // TODO
-        //this._view ? this._view.refresh() : null;
+        // Refresh the gantt chart
+        this.refresh();
     }
 
-    // Filters the timeline data
-    private filterEvents(row) {
-        // See if a filter is defined
-        if (this._filter) {
-            // See if the category matches
-            if (row.item.Category != this._filter) { return false; }
-        }
-
-        // Don't filter out the item
-        return true;
-    }
-
-    // Hides the timeline
+    // Hides the gantt chart
     hide() {
         // Hides the element
         this._el.classList.add("d-none");
@@ -93,6 +72,12 @@ export class GanttChart {
                 let startDate = item.EventDate;
                 let endDate = item.EndDate;
                 if (endDate && startDate) {
+                    // See if the filter is set
+                    if (this._filter) {
+                        // Ensure the category matches
+                        if (this._filter != item.Category) { continue; }
+                    }
+
                     // Create the item
                     this._items.push({
                         id: "Event_" + item.Id,
@@ -107,34 +92,47 @@ export class GanttChart {
         }
     }
 
-    // Refreshes the timeline
+    // Refreshes the gantt chart
     refresh() {
         // Load the rows and events
         this.loadEvents();
 
         // See if data exists
-        if (this._view && this._chart) {
-            // Update the timeline
-            // TODO
-            //this._view.setData(new DataSet(this._items));
+        if (this._chart) {
+            // Clear the chart
+            this._chart.clear();
+
+            // Load the events
+            this.loadEvents();
+
+            // Refresh the chart
+            this._items.length > 0 ? this._chart.refresh(this._items) : null;
         } else {
-            // Render the timeline
+            // Render the gantt chart
             this.render();
         }
     }
 
-    // Renders the timeline
+    // Renders the gantt chart
     private render() {
-        // Create the gantt chart
-        this._chart = new Gantt(this._el, this._items);
+        // Ensure items exist
+        if (this._items.length > 0) {
+            // Create the gantt chart
+            this._chart = new Gantt(this._el, this._items, {
+                view_mode: "Week"
+            });
 
-        // Resize the element
-        this._el.dispatchEvent(new Event("resize"));
+            // Resize the element
+            this._el.dispatchEvent(new Event("resize"));
+        }
     }
 
-    // Shows the timeline
+    // Shows the gantt chart
     show() {
         // Show the element
         this._el.classList.remove("d-none");
+
+        // Render the gantt chart if it doesn't exist
+        if (this._chart == null) { this.render(); }
     }
 }
