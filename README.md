@@ -1,2 +1,1 @@
-# schedule
-A dashboard solution displaying events in a gantt chart.
+[Click here](https://spsprinkles.com/schedule/) for an overview of the solution.

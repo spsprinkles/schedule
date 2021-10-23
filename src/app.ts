@@ -55,7 +55,7 @@ export class App {
                 items: [
                     {
                         className: "btn-outline-light",
-                        text: "New Entry",
+                        text: "New Event",
                         isButton: true,
                         onClick: () => {
                             // Create an item
