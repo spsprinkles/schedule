@@ -8,6 +8,7 @@ specifiers:
   datatables.net: ^1.11.5
   datatables.net-bs5: ^1.11.5
   dattatable: ^1.7.5
+  frappe-gantt: ^0.6.0
   gd-sprest-bs: ^9.3.7
   jquery: ^3.6.0
   moment: ^2.29.1
@@ -27,6 +28,7 @@ dependencies:
   datatables.net: 1.11.5
   datatables.net-bs5: 1.11.5
   dattatable: 1.7.5_e1fa90dc6f918d0d28577b528169f443
+  frappe-gantt: 0.6.0
   gd-sprest-bs: 9.3.7
   jquery: 3.6.0
   moment: 2.29.1
@@ -1881,6 +1883,10 @@ packages:
 
   /flatpickr/4.6.11:
     resolution: {integrity: sha512-/rnbE/hu5I5zndLEyYfYvqE4vPDvI5At0lFcQA5eOPfjquZLcQ0HMKTL7rv5/+DvbPM3/vJcXpXjB/DjBh+1jw==}
+    dev: false
+
+  /frappe-gantt/0.6.0:
+    resolution: {integrity: sha512-/P7s9edP6EoLD09EX2HPqsy1u0v4zYcurMy4ByExArvj7t0UDJlpxp88nISFtMkQe+aofaO9dR0fd61ZwX0O6g==}
     dev: false
 
   /fsevents/2.3.2:
