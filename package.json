@@ -19,28 +19,29 @@
     "url": "https://github.com/spsprinkles/schedule/issues"
   },
   "homepage": "https://github.com/spsprinkles/schedule#readme",
-  "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
-    "babel-loader": "^8.2.3",
-    "css-loader": "^6.4.0",
-    "html-loader": "^3.0.0",
-    "node-sass": "^6.0.1",
-    "sass-loader": "^12.2.0",
-    "style-loader": "^3.3.1",
-    "ts-loader": "^9.2.6",
-    "typescript": "^4.4.4",
-    "url-loader": "^4.1.1",
-    "webpack": "^5.59.1",
-    "webpack-cli": "^4.9.1"
-  },
   "dependencies": {
-    "datatables.net": "^1.11.3",
-    "datatables.net-bs5": "^1.11.3",
-    "dattatable": "^1.2.8",
-    "frappe-gantt": "^0.5.0",
-    "gd-sprest-bs": "^8.6.8",
+    "datatables.net": "^1.11.5",
+    "datatables.net-bs5": "^1.11.5",
+    "dattatable": "^1.7.5",
+    "gd-sprest-bs": "^9.3.7",
     "jquery": "^3.6.0",
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "text-encoding": "^0.7.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.4",
+    "css-loader": "^5.2.7",
+    "moment-locales-webpack-plugin": "^1.2.0",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.1",
+    "ts-loader": "^9.2.8",
+    "typescript": "^4.6.3",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
   }
 }
